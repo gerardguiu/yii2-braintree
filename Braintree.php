@@ -50,15 +50,16 @@ class Braintree extends Component
      * @param $command
      * @param $method
      * @param $values
+     * @param $attributes
      * @return mixed
      */
-    public function call($command, $method, $values)
+    public function call($command, $method, $values, $attributes = array())
     {
         $class = strtr("{class}_{command}", [
             '{class}' => $this->_prefix,
             '{command}' => $command,
         ]);
 
-        return call_user_func(array($class, $method), $values);
+        return call_user_func(array($class, $method), $values, $attributes);
     }
 } 
