@@ -53,7 +53,7 @@ class Braintree extends Component
      * @param $attributes
      * @return mixed
      */
-    public function call($command, $method, $values, $attributes = array())
+    public function call($command, $method, $values = array(), $attributes = array())
     {
         $class = strtr("{class}_{command}", [
             '{class}' => $this->_prefix,
